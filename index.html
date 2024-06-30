@@ -196,6 +196,7 @@
 
         mesages.push(usermessage);
         //*********************************************
+        //SIRVE PARA QUE escriba EN TIEMPO REAL
         let truks=await engine.chat.completions.create({
             //guardamos los mensajes en MESSAGES
             messages:mesages,
@@ -206,6 +207,7 @@
         
         for await(const truck of truks){
             const choice=truck.choices[0];
+            //aca decimos que si es indefinido algo que esta escribiendo chat sera igual a esp ""  
            const content=choice?.delta?.content ?? ""
             reply+=content
             bottext.textContent=reply
